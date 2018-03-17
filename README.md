@@ -1,1 +1,1 @@
-# whacamole_socket
+# development-sticker
