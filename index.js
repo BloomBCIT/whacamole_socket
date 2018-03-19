@@ -31,11 +31,11 @@ io.on("connection", function(socket){
         }
    
         allRooms[data].push(socket.id);
-
-        console.log(data);
+        io.to(data).emit("createimage", allRooms[data]);
+    
+           console.log(data);
         
     });
-
     
    
     
