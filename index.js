@@ -18,12 +18,12 @@ io.on("connection", function(socket){
     
     //allusers.push(socket.id);
     
-     socket.on("sticker", function(data){
-        allstickers[this.myRoom].push(data);
-         
-        io.to(this.myRoom).emit("newsticker", allstickers[this.myRoom]);
-        
-    });
+//     socket.on("sticker", function(data){
+//        allstickers[this.myRoom].push(data);
+//         
+//        io.to(this.myRoom).emit("newsticker", allstickers[this.myRoom]);
+//        
+//    });
     
     socket.on("joinroom", function(data){
         socket.emit("yourid", socket.id);
@@ -36,13 +36,13 @@ io.on("connection", function(socket){
             
         }
         
-        if(!allstickers[data]){
-            allstickers[data] = [];
-        }
-        
+//        if(!allstickers[data]){
+//            allstickers[data] = [];
+//        }
+//        
         
         allRooms[data].push(socket.id);
-        io.to(data).emit("createimage", allRooms[data]);
+//        io.to(data).emit("createimage", allRooms[data]);
         
 //        if(data=="room1"){
 //            allusersRoom1.push(socket.id);
@@ -58,16 +58,16 @@ io.on("connection", function(socket){
     
     //console.log(allusers);
     
-    socket.on("mymove", function(data){
-        socket.to(this.myRoom).emit("usermove", data); 
-    });
+//    socket.on("mymove", function(data){
+//        socket.to(this.myRoom).emit("usermove", data); 
+//    });
     
    
     
     socket.on("disconnect", function(){
         var index = allRooms[this.myRoom].indexOf(socket.id);
         allRooms[this.myRoom].splice(index, 1);
-        io.to(this.myRoom).emit("createimage", allRooms[this.myRoom]);
+//        io.to(this.myRoom).emit("createimage", allRooms[this.myRoom]);
     });
 });
 
