@@ -46,7 +46,7 @@ io.on("connection", function(socket){
             }
         }, (err, resp, body) => {
 
-            socket.to(socket.myRoom).emit("submitscore", body);   
+            socket.emit("submitscore", body);   
         });
     });
     
