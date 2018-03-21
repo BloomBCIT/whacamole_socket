@@ -47,7 +47,7 @@ io.on("connection", function(socket){
             }
         }, (err, resp, body) => {
 
-            socket.emit("submitscore", body);   
+            socket.emit("result",body);
         });
     });
     
