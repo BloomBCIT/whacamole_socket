@@ -36,6 +36,19 @@ io.on("connection", function(socket){
            console.log(data);
         
     });
+
+    socket.on("submitscore", function(data) {
+        request.post({
+            uri: "http://portfolio.kaylieson.com/bloomsocket/games.php",
+            form: {
+                playername: data.username,
+                score: data.score
+            }
+        }, (err, resp, body) => {
+
+            socket.to(socket.myRoom).emit("submitscore", body);   
+        });
+    });
     
    
     
